@@ -8,7 +8,7 @@
 <table class="table">
     <tr class="thead-dark">
         <th>Image</th>
-        <th>Pseudo</th>
+        <th>Name</th>
         <th>Age</th>
         <th>Sexe</th>
         <th>Force</th>
@@ -17,8 +17,8 @@
     </tr>
     {% for player in players %}
         <tr>
-            <td><img src="{{ asset('images/personnages/' ~ player.pseudo ~ '.png') }}"></td>
-            <td>{{ player.pseudo }}</td>
+            <td><img src="{{ asset('images/personnages/' ~ player.nom ~ '.png') }}"></td>
+            <td>{{ player.nom }}</td>
             <td>{{ player.age }}</td>
             <td>
             {% if player.sexe %}
