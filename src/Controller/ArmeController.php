@@ -10,17 +10,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArmeController extends AbstractController
 {
     /**
-     * @Route("/arme", name="app_arme")
-     */
-    public function index(): Response
-    {
-        return $this->render('arme/index.html.twig', [
-            'controller_name' => 'ArmeController',
-            'arme' => 'test'
-        ]);
-    }
-    
-    /**
      * @Route("/armes", name="armes")
      */
     public function armes(): Response

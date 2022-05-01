@@ -4,37 +4,64 @@ namespace App\Entity;
 
 class Arme {
 
-    public $nom;
-    public $carac = [];
+    private $nom;
+	private $description;
+	private $degat;
 
-    public static $armes = [];
+	public static $armes = [];
 
-    public function __construct($nom, $carac) {
-        $this->nom = $nom;
-        $this->carac = $carac;
-        self::$armes[] = $this;
-    }
+	public function __construct($nom, $description, $degat) {
+		$this->nom = $nom;
+		$this->description = $description;
+		$this->degat = $degat;
+		self::$armes[] = $this;
+	}
 
     public static function creerArmes() {
-        $a1 = new Arme('épée', [
-            'desc' => 'Une superbe épée tranchante',
-            'degat' => 10
-        ]);
-        $a2 = new Arme('arc', [
-            'desc' => 'Une arme à distance',
-            'degat' => 7
-        ]);
-        $a3 = new Arme('hache', [
-            'desc' => 'Une arme ou un outil',
-            'degat' => 15
-        ]);
-    }
-
+        new Arme("Épée", "Une superbe épée tranchante", 10);
+		new Arme("Arc", "Une arme à distance", 7);
+		new Arme("Hache", "Une arme ou un outil", 15);
+	}
+    
     public static function getArmeParNom($nom) {
+        $searchChar = array("É", "é");
         foreach(self::$armes as $arme) {
-            if ($arme->nom === $nom) {
+            if (strtolower(str_replace($searchChar, 'e', $arme->nom)) === $nom) {
                 return $arme;
             }
         }
+    }
+
+    /**
+     * Getters
+     */
+    public function getNom() {
+        return $this->nom;
+    }
+    
+    public function getDescription() {
+        return $this->description;
+    }
+    
+    public function getDegat() {
+        return $this->degat;
+    }
+    
+    /**
+     * Setters
+     */
+    public function setNom($nom) {
+        $this->nom = $nom;
+        return $this;
+    }
+    
+    public function setDescription($description) {
+        $this->description = $description;
+        return $this;
+    }
+    
+    public function setDegat($degat) {
+        $this->degat = $degat;
+        return $this;
     }
 }

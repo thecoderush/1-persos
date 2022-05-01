@@ -7,14 +7,12 @@
 {% block body %}
     <div class="row">
         <div class="col-2">
-            <img src="{{ asset('images/armes/' ~ arme.nom | replace({'é':'e'}) ~ '.png') }}">
+            <img src="{{ asset('images/armes/' ~ arme.nom | lower | replace({'é':'e'}) ~ '.png') }}">
         </div>
         <div class="col">
-            <ul style="list-style-type:none">
-                <li>{{ arme.nom }}</li>
-                <li>{{ arme.carac.desc }}</li>
-                <li>{{ arme.carac.degat }}</li>
-            </ul>
+                <div>{{ arme.nom }}</div>
+                <div>{{ arme.description }}</div>
+                <div>{{ arme.degat }}</div>
         </div>
     </div>
 {% endblock %}
