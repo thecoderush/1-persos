@@ -9,7 +9,7 @@
         {% for weapon in weapons %}
             <tr>
                 <td style="width: 20%"><img src="{{ asset('images/armes/' ~ weapon.nom | replace({'é':'e'}) ~ '.png') }}"></td>
-                <td>{{ weapon.nom }}</td>
+                <td><a href="{{ path("afficher_arme", {'nom': weapon.nom}) }}">{{ weapon.nom }}</a></td>
             </tr>
         {% endfor %}
     </table>

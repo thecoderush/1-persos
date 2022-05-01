@@ -31,4 +31,17 @@ class ArmeController extends AbstractController
             'weapons' => Arme::$armes 
         ]);
     }
+
+    /**
+     * @Route("/armes/{nom}", name="afficher_arme")
+     */
+    public function afficherArme($nom): Response
+    {
+        Arme::creerArmes();
+        $arme = Arme::getArmeParNom($nom);
+        return $this->render('arme/arme.html.twig', [
+            'controller_name' => 'ArmeController',
+            'arme' => $arme             
+        ]);
+    }
 }

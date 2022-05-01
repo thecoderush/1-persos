@@ -10,7 +10,6 @@ class Arme {
     public static $armes = [];
 
     public function __construct($nom, $carac) {
-
         $this->nom = $nom;
         $this->carac = $carac;
         self::$armes[] = $this;
@@ -31,4 +30,11 @@ class Arme {
         ]);
     }
 
+    public static function getArmeParNom($nom) {
+        foreach(self::$armes as $arme) {
+            if ($arme->nom === $nom) {
+                return $arme;
+            }
+        }
+    }
 }
